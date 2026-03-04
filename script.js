@@ -8,21 +8,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // 1. Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
+   const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    // localStorage save if needed
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
     }
-    
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-            this.style.transform = 'scale(0.9)';
-            setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
-        });
-    }
+});
     
     // 2. Typing animation
     const nameElement = document.getElementById("name");

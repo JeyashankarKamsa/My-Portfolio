@@ -8,6 +8,7 @@
 :root {
     --primary-color: #1a3a5f;  /* Blue */
     --secondary-color: #c9a96e; /* Gold */
+    --additional-color:#4da3ff;
     --light-color: #f8f9fa;
     --dark-color: #2c3e50;
     --gray-color: #e9ecef;
@@ -18,13 +19,14 @@ body {
     background-color: var(--light-color);
     color: var(--dark-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
-
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 /* Header Styles */
@@ -79,73 +81,52 @@ nav ul li a:hover {
     color: var(--secondary-color);
 }
 
-/* ===== BEAUTIFUL THEME TOGGLE BUTTON ===== */
 .theme-toggle {
-    margin-left: 20px;
-    width: 60px;
-    height: 30px;
-    background: linear-gradient(145deg, var(--primary-color), #234a77);
-    border-radius: 40px;
+    width: 50px;
+    height: 26px;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 8px;
-    cursor: pointer;
-    position: relative;
-    border: 2px solid var(--secondary-color);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: var(--transition);
+    padding: 3px;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(201, 169, 110, 0.3);
-}
-
-.theme-toggle span {
-    font-size: 18px;
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-.theme-toggle .light-icon {
-    color: #ffd700;
-    text-shadow: 0 0 5px #ffd700;
-}
-
-.theme-toggle .dark-icon {
-    color: #f0f0f0;
-    text-shadow: 0 0 5px #a0a0a0;
-}
-
-/* Toggle circle indicator */
-.theme-toggle::after {
+.theme-toggle::before {
     content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     background: white;
     border-radius: 50%;
-    top: 0px;
-    left: 0px;
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    border: 2px solid var(--secondary-color);
-    z-index: 1;
-}
-
-/* Dark mode state for toggle */
-body.dark-mode .theme-toggle::after {
-    transform: translateX(30px);
-    background: #2d3748;
-    border-color: #e9b741;
+    transition: 0.3s ease;
 }
 
 body.dark-mode .theme-toggle {
-    background: linear-gradient(145deg, #2d3748, #1a202c);
-    border-color: #e9b741;
+    background-color: var(--secondary-color);
 }
 
+body.dark-mode .theme-toggle::before {
+    transform: translateX(24px);
+}
+
+/* By default, only light icon visible */
+.light-icon {
+    display: inline;
+}
+.dark-icon {
+    display: none;
+}
+
+/* Dark mode - show dark icon, hide light icon */
+body.dark-mode .light-icon {
+    display: none;
+}
+
+body.dark-mode .dark-icon {
+    display: inline;
+}
 /* ===== DARK MODE VARIABLES ===== */
 body.dark-mode {
     --primary-color: #2c5282;
@@ -210,7 +191,7 @@ body.dark-mode footer {
     background-position: center;
     color: white;
     padding: 180px 0 100px;
-    margin-top: 50px;
+    margin-top: 70px;
     text-align: center;
 }
 
@@ -269,7 +250,7 @@ body.dark-mode footer {
 }
 
 .about-card h2 {
-    color: var(--primary-color);
+    color: var(--additional-color);
 }
 
 .about-card .role {
@@ -286,7 +267,7 @@ body.dark-mode footer {
 .about-details h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--additional-color);
 }
 
 .about-details p {
@@ -311,7 +292,7 @@ body.dark-mode footer {
 
 .info-box h3 {
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: var(--additional-color);
 }
 
 /* Services Section - Updated for 2 rows with 3 cards each */
@@ -327,7 +308,7 @@ body.dark-mode footer {
 
 .section-title h2 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--additional-color);
     margin-bottom: 10px;
 }
 
@@ -384,7 +365,7 @@ body.dark-mode footer {
 }
 
 .service-card h3 {
-    color: var(--primary-color);
+    color: var(--additional-color);
     margin-bottom: 15px;
 }
 
@@ -432,7 +413,7 @@ body.dark-mode footer {
 }
 
 .project-content h3 {
-    color: var(--primary-color);
+    color: var(--additional-color);
     margin-bottom: 10px;
 }
 
@@ -479,7 +460,7 @@ body.dark-mode footer {
 }
 
 .contact-info h3 {
-    color: var(--primary-color);
+    color: var(--additional-color);
     margin-bottom: 15px;
 }
 
